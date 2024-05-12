@@ -1,3 +1,4 @@
+import AnecdoteForm from './components/AnecdoteForm'
 import { useSelector, useDispatch } from 'react-redux'
 
 const App = () => {
@@ -16,22 +17,6 @@ const App = () => {
     }
   }
 
-  const createAnecdoteAction = content => {
-    return {
-      type: 'NEW_ANECDOTE',
-      payload: { content }
-    }
-  }
-
-  const handleOnSubmit = (event) => {
-    event.preventDefault()
-
-    const content = event.target.content.value
-    event.target.content.value = ''
-    
-    dispatch(createAnecdoteAction(content))
-  }
-
   return (
     <div>
       <h2>Anecdotes</h2>
@@ -46,11 +31,7 @@ const App = () => {
           </div>
         </div>
       )}
-      <h2>create new</h2>
-      <form onSubmit={handleOnSubmit}>
-        <div><input name='content' /></div>
-        <button>create</button>
-      </form>
+      <AnecdoteForm />
     </div>
   )
 }
