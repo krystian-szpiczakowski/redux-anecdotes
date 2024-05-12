@@ -6,11 +6,21 @@ const App = () => {
   const dispatch = useDispatch()
 
   const vote = (id) => {
-    console.log('vote', id)
-    dispatch({
+    dispatch(voteAction(id))
+  }
+
+  const voteAction = id => {
+    return {
       type: 'VOTE',
       payload: { id }
-    })
+    }
+  }
+
+  const createAnecdoteAction = content => {
+    return {
+      type: 'NEW_ANECDOTE',
+      payload: { content }
+    }
   }
 
   const handleOnSubmit = (event) => {
@@ -18,15 +28,8 @@ const App = () => {
 
     const content = event.target.content.value
     event.target.content.value = ''
-
-    const action = {
-      type: 'NEW_ANECDOTE',
-      payload: {
-        content: content
-      }
-    }
-
-    dispatch(action)
+    
+    dispatch(createAnecdoteAction(content))
   }
 
   return (
