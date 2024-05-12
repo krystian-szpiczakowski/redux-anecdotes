@@ -27,10 +27,12 @@ const reducer = (state = initialState, action) => {
     case 'VOTE':
       const id = action.payload.id
       const anecdoteToChange = state.find(anecdote => anecdote.id === id)
-      console.log("Found anecdote: " + anecdoteToChange)
       const changedAnecdote = {...anecdoteToChange, votes: anecdoteToChange.votes + 1}
       const updatedState = state.map(anecdote => anecdote.id !== id ? anecdote : changedAnecdote)
       return updatedState
+    case 'NEW_ANECDOTE':
+      const newAnecdote = asObject(action.payload.content)
+      return state.concat(newAnecdote)
     default: return state
   }
 }
