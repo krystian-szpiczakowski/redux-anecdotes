@@ -8,7 +8,7 @@ describe("Anecdotes are filtered by anecdote text", () => {
 
     test("Change filter from default to abc", () => {
         const action = {
-            type: 'FILTER',
+            type: 'filter/filterByContent',
             payload: {
                 content: "abc"
             }
@@ -19,7 +19,7 @@ describe("Anecdotes are filtered by anecdote text", () => {
 
     test("When passing undefined content set empty string", () => {
         const action = {
-            type: 'FILTER',
+            type: 'filter/filterByContent',
             payload: {
                 content: undefined
             }
@@ -30,14 +30,14 @@ describe("Anecdotes are filtered by anecdote text", () => {
 
     test("Update filter multiple times", () => {
         const firstAction = {
-            type: 'FILTER',
+            type: 'filter/filterByContent',
             payload: {
                 content: "abc"
             }
         }
 
         const anotherAction = {
-            type: 'FILTER',
+            type: 'filter/filterByContent',
             payload: {
                 content: "abcdef"
             }

@@ -34,7 +34,7 @@ describe('storing votes', () => {
         const selectedId = 1
 
         var action = {
-            type: "VOTE",
+            type: "anecdotes/vote",
             payload: {
                 id: selectedId
             }
@@ -54,7 +54,7 @@ describe('storing votes', () => {
         const selectedId = 2
 
         var action = {
-            type: "VOTE",
+            type: "anecdotes/vote",
             payload: {
                 id: selectedId
             }
