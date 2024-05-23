@@ -20,16 +20,6 @@ describe('storing votes', () => {
         }
     ]
 
-    test('all anecdotes have 0 votes at the beginning', () => {
-        var action = {
-            type: "DO_NOTHING"
-        }
-
-        const initialState = reducer(undefined, action)
-        expect(initialState).toHaveLength(6)
-        initialState.forEach(anecdote => expect(anecdote.votes).toBe(0))
-    })
-
     test('single vote increments votes only for one anecdote', () => {
         const selectedId = 1
 
